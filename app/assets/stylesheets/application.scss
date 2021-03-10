@@ -15,3 +15,17 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// フォーム関連
+.c-form-area {
+    display: flex;
+    justify-content: center;
+}
+
+.c-form {
+    text-align: center;
+    width: 250px;
+    border: solid 1px gray;
+    box-shadow: 4px 8px 4px rgba(0,0,0,0.3);
+}
+
