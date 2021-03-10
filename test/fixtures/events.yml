@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  event1: MyString
+  event2: MyString
+  event3: MyString
+  event4: MyString
+  event5: MyString
+  capacity: 1
+  start-period: 1
+  finish-period: 1
+  advice: MyString
+  introduction: MyText
+
+two:
+  title: MyString
+  event1: MyString
+  event2: MyString
+  event3: MyString
+  event4: MyString
+  event5: MyString
+  capacity: 1
+  start-period: 1
+  finish-period: 1
+  advice: MyString
+  introduction: MyText

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="c-eventform">
+      <%= form_with model: @event, url:root_path, local:true do |f| %>
+        <div class="row c-row">
+            <%= f.label:イベント名 %>
+            <%= f.text_field :title, size: 50 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目１ %>
+            <%= f.text_field :event1 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目２ %>
+            <%= f.text_field :event2 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目３ %>
+            <%= f.text_field :event3 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目４ %>
+            <%= f.text_field :event4 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目５ %>
+            <%= f.text_field :event5 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:人数 %>
+            <%= f.text_field :capacity %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:日時 %>
+            <%= f.text_field :start %>~<%= f.text_field :finish %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:アドバイス %>
+            <%= f.text_field :advice %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:参加費 %>
+            <%= f.text_field :price %>
+        </div>
+        
+        <%= f.submit "この内容でイベントを作成する" %>
+      <% end %>
+  </div>
+</div>

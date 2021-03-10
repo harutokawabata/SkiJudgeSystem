@@ -16,7 +16,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// フォーム関連
+// 1フォーム関連
+// 1-1ログイン関連
 .c-form-area {
     display: flex;
     justify-content: center;
@@ -28,4 +29,16 @@
     border: solid 1px gray;
     box-shadow: 4px 8px 4px rgba(0,0,0,0.3);
 }
+// 1-2イベント関連
+.c-eventform {
+    padding: 20px 20px 30px 40px;
+    width: 450px;
+    border: solid 1px gray;
+    box-shadow: 4px 8px 4px rgba(0,0,0,0.3);
+}
+
+.c-row {
+    margin: 10px;
+}
+
 
