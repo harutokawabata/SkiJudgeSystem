@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+      <% a = 0 %>
+      <% @events.each do |event| %>
+       <%= a += 1 %><%= event.title %><br>
+       <%= event.event1 %>
+      <% end %>
+  </div>
+  <div class="c-eventform">
+    <h2 class="midashi2 text-center">イベント登録フォーム</h2>   
+      <%= form_with model: @event, url:admins_events_path, local:true do |f| %>
+        <div class="row c-row">
+            <%= f.label:イベント名 %>
+            <%= f.text_field :title, size: 50 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目１ %>
+            <%= f.select :event1, [["大回り", "大回り"], ["小回り", "short"], ["総合滑降", "free"], ["不整地小回り", "bumps"]], include_blank: "選択してください" %><br>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目２ %>
+            <%= f.select :event2, [["大回り", "long"], ["小回り", "short"], ["総合滑降", "free"], ["不整地小回り", "bumps"]], include_blank: "選択してください" %><br>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目３ %>
+            <%= f.select :event3, [["大回り", "long"], ["小回り", "short"], ["総合滑降", "free"], ["不整地小回り", "bumps"]], include_blank: "選択してください" %><br>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目４ %>
+            <%= f.select :event4, [["大回り", "long"], ["小回り", "short"], ["総合滑降", "free"], ["不整地小回り", "bumps"]], include_blank: "選択してください" %><br>
+        </div>
+        <div class="row c-row">
+            <%= f.label:種目５ %>
+            <%= f.text_field :event5 %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:人数 %>
+            <%= f.text_field :capacity %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:日時 %>
+            <%= f.text_field :start %>~<%= f.text_field :finish %>
+        </div>
+        <div class="row c-row">
+            <%= f.label:アドバイス %>
+            <%= f.text_field :advice %>
+        </div>
+        <%= f.submit "この内容でイベントを作成する" %>
+      <% end %>
+    </div>
+</div>
