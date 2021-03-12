@@ -14,6 +14,7 @@
       <p>test</p>
       <%= link_to "ログアウト", destroy_admin_session_path, class: "glyphicon glyphicon-log-out", method: :delete %>
     </header>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>

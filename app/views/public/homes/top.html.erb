@@ -1,4 +1,6 @@
 <div class="container">
+   <%= link_to "イベント作成はこちら", new_admins_event_path %> <br>
+   <%= link_to "イベント一覧はこちら", admins_events_path %> 
     <h3 class="midashi3">How To Use & About Us</h3>
     <div class="row">
       <div class="col-lg-6">
@@ -36,7 +38,9 @@
       </ul>
     </div>
     <div class="row text-center">
-      <p class="btn btn-primary">開催中のイベントを確認する</p>
+      <div class="btn btn-primary">
+        <%= link_to "開催中のイベントを確認する", events_path, style:"color:white;" %>
+      </div>
     </div>
   </div>
   

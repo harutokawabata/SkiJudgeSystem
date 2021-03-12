@@ -17,6 +17,7 @@ class Admins::EventsController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = '投稿に失敗しました'
+      render action: :new
     end
     
   end
@@ -29,6 +30,6 @@ class Admins::EventsController < ApplicationController
   
   private
   def event_params
-    params.require(:event).permit(:title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice)
+    params.permit(:title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice)
   end
 end
