@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-    validates :capacity, presence: true
+    validates :introduction, presence: true
 end

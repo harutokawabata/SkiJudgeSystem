@@ -15,7 +15,7 @@
     		  <% @events.each do |event| %>
     			<tr>
     				<th><%= a += 1 %></th>
-    				<td><%= event.title %></td>
+    				<td><%= link_to event.title, event_path(event.id) %></td>
     				<td>
     				  <ul>
     				    <% if event.event1.present? %>
