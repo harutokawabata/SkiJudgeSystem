@@ -16,8 +16,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//クラス命名規則//
+// 1.c-はcommon(共通)の意味
+// 2.各関連ごとにタイトルをコメントアウトで表示
+// 3.container✕モデル名でクラスを作ること
+
+// 0共通関連
+// 0-1改行反映
+.c-text-field {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+
+
 // 1フォーム関連
 // 1-1ログイン関連
+
 .c-form-area {
     display: flex;
     justify-content: center;
@@ -42,4 +57,8 @@
     margin: 10px;
 }
 
+.container.event {
+    display: flex;
+    justify-content: center;
+}
 
