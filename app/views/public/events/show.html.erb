@@ -1,9 +1,14 @@
 <div class="container">
   <div class="row">
-    <ul>
-      <li>エントリーステータス未実装</li>
-      <li>開催日時カラム未実装</li>
-    </ul>
+    <% if @event.event_status == 1 %>
+      <p>受付中</p>
+    <% elsif @event.event_status == 2 %>
+      <p>満席</p>
+    <% elsif @event.event_status == 3 %>
+      <p>準備中</p>
+    <% else %>
+     <p>エラー</p>
+    <% end %>
   </div>
   <div class="row table-responsive" style="width: 100%;">
   	<table class="table">
@@ -19,7 +24,11 @@
   				<td class="col-lg-9"><%= @event.title %></td>
   			</tr>
   			<tr>
-  				<th class="col-lg-3 text-center">上限人数</th>
+  				<th class="col-lg-3 text-center">開催日</th>
+  				<td class="col-lg-9"><%= @event.date %></td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">エントリー上限人数</th>
   				<td class="col-lg-9"><%= @event.capacity %>名</td>
   			</tr>
   			<tr>
@@ -43,20 +52,56 @@
   				</td>
   			</tr>
   			<tr>
-  				<th class="col-lg-3 text-center">上限人数</th>
-  				<td class="col-lg-9"><%= @event.capacity %>名</td>
-  			</tr>
-  			<tr>
-  				<th class="col-lg-3 text-center">開催日時</th>
-  				<td class="col-lg-9">カラム未実装</td>
+  				<th class="col-lg-3 text-center">カテゴリー</th>
+  				<td class="col-lg-9">
+  				  <ul>
+    				  <li><%= @event.category1 %></li>
+      				  <% if @event.category2.present? %>
+      				    <li><%= @event.category2 %></li>
+      				  <% end %>
+      				  <% if @event.category3.present? %>
+      				    <li><%= @event.category3 %></li>
+      				  <% end %>
+      				  <% if @event.category4.present? %>
+      				    <li><%= @event.category4 %></li>
+      				  <% end %>
+      				  <% if @event.category5.present? %>
+      				    <li><%= @event.category5 %></li>
+      				  <% end %>
+  				  </ul>
+  				</td>
   			</tr>
   			<tr>
   				<th class="col-lg-3 text-center">エントリー可能期間</th>
-  				<td class="col-lg-9"><%= @event.start %>~<%= @event.finish %></td>
+  				<td class="col-lg-9">エントリー開始：<%= @event.start %>////////エントリー終了：<%= @event.finish %></td>
   			</tr>
   			<tr>
   				<th class="col-lg-3 text-center">参加費用</th>
-  				<td class="col-lg-9">カラム未実装</td>
+  				<td class="col-lg-9"><%= @event.price %>円</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">ワンポイントアドバイス</th>
+  				<td class="col-lg-9"><%= @event.advice %></td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">オーディエンスジャッジ</th>
+  				<td class="col-lg-9">
+  				  <% if @event.audience == true %>
+    				  <p>あり</p>
+    				<% else %>
+    				  <p>なし</p>
+    				<% end %>
+  				</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">ゲストジャッジ</th>
+  				<td class="col-lg-9">
+    				<% if @event.spg == true %>
+    				  <p>あり</p>
+    				<% else %>
+    				  <p>なし</p>
+    				<% end %>
+  				</td>
   			</tr>
   			<tr>
   				<th class="col-lg-3 text-center">詳細</th>
