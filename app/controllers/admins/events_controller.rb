@@ -6,6 +6,10 @@ class Admins::EventsController < ApplicationController
   def edit
   end
   
+  def show
+    @event = Event.find(params[:id])
+  end
+  
   def index
     @event = Event.new
     @events = Event.all 
@@ -25,7 +29,7 @@ class Admins::EventsController < ApplicationController
 
     @date = Time.mktime(year,month,day)
     if @event.save
-      @event.event_status = 1
+      @event.update(event_status: 1)
       redirect_to root_path
     else
       flash[:notice] = '投稿に失敗しました'
@@ -37,10 +41,14 @@ class Admins::EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    if @event.destroy
+      redirect_to root_path
+    end
   end
   
   private
   def event_params
-    params.permit(:title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice, :introduction, :event_status, :date, :price, :category1, :category2, :category3, :category4, :category5, :audience, :spg)
+    params.permit(:title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice, :introduction, :event_status, :date, :price, :category1, :category2, :category3, :category4, :category5, :method, :audience, :spj)
   end
 end

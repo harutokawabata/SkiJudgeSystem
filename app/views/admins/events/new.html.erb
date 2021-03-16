@@ -4,6 +4,14 @@
       <%= form_with model: @event, url:admins_events_path, local:true do |f| %>
         <div class="row c-row">
             <div class="col-lg-3">
+              <%= f.label:大会方式 %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.select :method, [["オンライン大会", 0],["通常大会", 1]] %>
+            </div>
+        </div>
+        <div class="row c-row">
+            <div class="col-lg-3">
               <%= f.label:イベント名 %>  
             </div>
             <div class="col-lg-9">
@@ -143,7 +151,7 @@
             <%= f.label:ゲストジャッジ %>
           </div>
           <div class="col-lg-9">
-            <%= f.select :spg, [["あり", "あり"], ["なし", "なし"]], include_blank: "選択してください" %><br>
+            <%= f.select :spj, [["あり", "あり"], ["なし", "なし"]], include_blank: "選択してください" %><br>
           </div>
         </div>
         <div class="row c-row">

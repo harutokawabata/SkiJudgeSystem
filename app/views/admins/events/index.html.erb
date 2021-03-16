@@ -1,12 +1,46 @@
 <div class="container">
-  <div class="row">
-    <i class="fas fa-plus-circle">a<%= link_to new_admins_event_path %></i>
-  </div>
-  <div class="row">
-      <% a = 0 %>
-      <% @events.each do |event| %>
-       <%= a += 1 %><%= event.title %><br>
-       <%= event.event1 %>
-      <% end %>
-  </div>
+    <i class="fas fa-plus-circle"><%= link_to "新しいイベント", new_admins_event_path %></i>
+    <div class="table-responsive">
+    	<table class="table">
+    		<thead>
+    			<tr>
+    				<th>No.</th>
+    				<th>イベント名</th>
+    				<th>種目</th>
+    				<th>エントリー上限</th>
+    				<th>期間</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    		  <% a = 0 %>
+    		  <% @events.each do |event| %>
+    			<tr>
+    				<th><%= a += 1 %></th>
+    				<td><%= link_to event.title, event_path(event.id) %></td>
+    				<td>
+    				  <ul>
+    				    <% if event.event1.present? %>
+    				      <li><%= event.event1 %></li>
+    				    <% end %>
+    				    <% if event.event2.present? %>
+    				      <li><%= event.event2 %></li>
+    				    <% end %>
+    				    <% if event.event3.present? %>
+    				      <li><%= event.event3 %></li>
+    				    <% end %>
+    				    <% if event.event4.present? %>
+    				      <li><%= event.event4 %></li>
+    				    <% end %>
+    				    <% if event.event5.present? %>
+    				      <li><%= event.event5 %></li>
+    				    <% end %>
+    				  </ul>
+    				</td>
+    				<td><%= event.capacity %></td>
+    				<td><%= event.start %>~<%= event.finish %></td>
+    			</tr>
+    		  <% end %>
+    		</tbody>
+    	</table>
+    </div>
 </div>

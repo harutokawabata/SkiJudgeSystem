@@ -27,7 +27,7 @@ devise_for :users, controllers: {
     get '/admin' => 'admin/homes#top'
     
   namespace :admins do
-    resources :events, only:[:index, :new, :create, :update, :edit, :destory, :post]
+    resources :events
   end
   
   scope module: :public do

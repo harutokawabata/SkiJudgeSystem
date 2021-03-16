@@ -48,7 +48,8 @@ ActiveRecord::Schema.define(version: 2021_03_15_113458) do
     t.string "category4"
     t.string "category5"
     t.boolean "audience", default: false
-    t.boolean "spg", default: false
+    t.boolean "spj", default: false
+    t.boolean "method", default: false
   end
 
   create_table "users", force: :cascade do |t|
