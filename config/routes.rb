@@ -31,7 +31,7 @@ devise_for :users, controllers: {
   end
   
   scope module: :public do
-    resources :events, only:[:index, :show]
+    resources :events
   end
   
   # devise_for :users, controllers: {

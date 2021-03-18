@@ -11,5 +11,7 @@ class AddDetailsToEvents < ActiveRecord::Migration[5.2]
     add_column :events, :audience, :boolean, default: 0 #audienceはオーディエンスジャッジの存在があるかないか？
     add_column :events, :spj, :boolean, default: 0  #spjはスペシャルジャッジの略で0があり1がなし
     add_column :events, :method, :boolean, default: 0 #オンライン大会orリアルタイム大会か？
+    add_column :events, :user_id, :integer
+    add_column :events, :admin_id, :integer
   end
 end
