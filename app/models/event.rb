@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    belongs_to :admin
+    belongs_to :admin, optional: true
     belongs_to :user
-    validates :introduction, presence: true
+    validates :title, presence: true
 end

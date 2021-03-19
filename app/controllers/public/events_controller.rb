@@ -9,6 +9,8 @@ class Public::EventsController < ApplicationController
   
   def new
     @events = Event.all
+    @user = current_user
+    @event = Event.new
   end
   
   def create
@@ -30,6 +32,6 @@ class Public::EventsController < ApplicationController
   
   private
   def event_params
-    params.permit(:title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice, :introduction, :event_status, :date, :price, :category1, :category2, :category3, :category4, :category5, :method, :audience, :spj, :user_id)
+    params.permit(:title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice, :introduction, :event_status, :date, :price, :category1, :category2, :category3, :category4, :category5, :method, :audience, :spj, :user_id, :admin_id)
   end
 end
