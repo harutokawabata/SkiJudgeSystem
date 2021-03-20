@@ -1,51 +1,14 @@
 <div class="container">
-    <i class="fas fa-plus-circle"><%= link_to "新しいイベント", new_admins_event_path %></i>
     <% if user_signed_in? %>
-        <div class="table-responsive">
-        	<table class="table">
-        		<thead>
-        			<tr>
-        				<th>No.</th>
-        				<th>イベント名</th>
-        				<th>種目</th>
-        				<th>エントリー上限</th>
-        				<th>期間</th>
-        			</tr>
-        		</thead>
-        		<tbody>
-        		  <% a = 0 %>
-        		  <% @events.each do |event| %>
-        			<tr>
-        				<th><%= a += 1 %></th>
-        				<td><%= link_to event.title, event_path(event.id) %></td>
-        				<td>
-        				  <ul>
-        				    <% if event.event1.present? %>
-        				      <li><%= event.event1 %></li>
-        				    <% end %>
-        				    <% if event.event2.present? %>
-        				      <li><%= event.event2 %></li>
-        				    <% end %>
-        				    <% if event.event3.present? %>
-        				      <li><%= event.event3 %></li>
-        				    <% end %>
-        				    <% if event.event4.present? %>
-        				      <li><%= event.event4 %></li>
-        				    <% end %>
-        				    <% if event.event5.present? %>
-        				      <li><%= event.event5 %></li>
-        				    <% end %>
-        				  </ul>
-        				</td>
-        				<td><%= event.capacity %></td>
-        				<td><%= event.start %>~<%= event.finish %></td>
-        			</tr>
-        		  <% end %>
-        		</tbody>
-        	</table>
-        </div>
+      <div class="row">
+          <% @events.each do |event| %>
+            <% if event.event_status == 3 %>
+              <p class="c-red">あなたが申請中のイベント</p><%= event.title %>
+            <% end %>
+          <% end %>
+      </div>
     <% else %>
-      <p>申請中のイベントはアリません</p>
+      <i class="fas fa-plus-circle"><%= link_to "ログインしてイベント申請", new_event_path %></i>
     <% end %>
     <div class="table-responsive">
     	<table class="table">
@@ -56,6 +19,7 @@
     				<th>種目</th>
     				<th>エントリー上限</th>
     				<th>期間</th>
+    				<th>編集・削除</th>
     			</tr>
     		</thead>
     		<tbody>
@@ -85,6 +49,15 @@
     				</td>
     				<td><%= event.capacity %></td>
     				<td><%= event.start %>~<%= event.finish %></td>
+    				<% if user_signed_in? %>
+    				<td>
+    				  <div class="btn btn-danger">
+    				    <%= link_to "削除", event_path(event.id), method: :delete, style:"color: white;" %>
+    				  </div>
+    				  <div class="btn btn-primary">
+    				    <%= link_to "編集", edit_event_path(event.id), style:"color: white;" %>
+    				  </div>
+    				<% end %>
     			</tr>
     		  <% end %>
     		</tbody>

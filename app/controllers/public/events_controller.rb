@@ -1,6 +1,8 @@
 class Public::EventsController < ApplicationController
+  before_action :authenticate_user!, except:[:index, :show]
   def index
     @events = Event.all
+    @user = current_user
   end
   
   def show
@@ -28,6 +30,18 @@ class Public::EventsController < ApplicationController
         render action: :new
       end
     # end
+  end
+    
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy!
+    redirect_to events_path
+  end
+  
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to events_path
   end
   
   private
