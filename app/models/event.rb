@@ -1,3 +1,5 @@
 class Event < ApplicationRecord
-    validates :capacity, presence: true
+    belongs_to :admin, optional: true
+    belongs_to :user
+    validates :title, presence: true
 end

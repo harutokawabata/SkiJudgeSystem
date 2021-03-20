@@ -1,7 +1,7 @@
 <div class="container event">
   <div class="row c-eventform">
-    <h2 class="midashi2 text-center">イベント登録フォーム</h2>   
-      <%= form_with model: @event, url:admins_events_path, local:true do |f| %>
+    <h2 class="midashi2 text-center">イベント申請フォーム</h2>   
+      <%= form_with url:"/events" do |f| %>
         <div class="row c-row">
             <div class="col-lg-3">
               <%= f.label:大会方式 %>  
@@ -171,7 +171,7 @@
           </div>
         </div>
         <div class="text-center">
-            <%= f.submit "この内容でイベントを作成する" %>
+            <%= f.submit "この内容で大会を申請する" %>
         </div>
       <% end %>
     </div>

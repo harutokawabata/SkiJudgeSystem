@@ -16,8 +16,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//クラス命名規則//
+// 1.c-はcommon(共通)の意味
+// 2.各関連ごとにタイトルをコメントアウトで表示
+// 3.container✕モデル名でクラスを作ること
+
+// 0共通関連
+// 0-1改行反映
+.c-text-field {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+//0-2色の設定
+.c-red {
+    color: red;
+    border: solid 1px red;
+    text-align: center;
+}
+
+
+
 // 1フォーム関連
 // 1-1ログイン関連
+
 .c-form-area {
     display: flex;
     justify-content: center;
@@ -33,7 +55,7 @@
 // 1-2イベント関連
 .c-eventform {
     padding: 20px 20px 30px 40px;
-    width: 450px;
+    width: 600px;
     border: solid 1px gray;
     box-shadow: 4px 8px 4px rgba(0,0,0,0.3);
 }
@@ -42,4 +64,22 @@
     margin: 10px;
 }
 
+.container.event {
+    display: flex;
+    justify-content: left;
+    
+    .row.you{
+        width: 600px;
+        border: solid 1px gray;
+        margin-left: 30px;
+    }
+    .row.o {
+          margin-left: 30px;
+    }
+    
+}
+
+.event-intro{
+    width: 500px;
+}
 

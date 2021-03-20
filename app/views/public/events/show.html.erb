@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row">
+    <% if @event.event_status == 1 %>
+      <p>受付中</p>
+    <% elsif @event.event_status == 2 %>
+      <p>満席</p>
+    <% elsif @event.event_status == 3 %>
+      <p>申請中</p>
+    <% else %>
+     <p>エラー</p>
+    <% end %>
+  </div>
+  <div class="row table-responsive" style="width: 100%;">
+  	<table class="table">
+  		<thead>
+  			<tr>
+  				<th class="col-lg-3 text-center">項目</th>
+  				<th class="col-lg-9">内容</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr>
+  				<th class="col-lg-3 text-center">イベント名</th>
+  				<td class="col-lg-9"><%= @event.title %></td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">開催日</th>
+  				<td class="col-lg-9"><%= @event.date %></td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">エントリー上限人数</th>
+  				<td class="col-lg-9"><%= @event.capacity %>名</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">種目</th>
+  				<td class="col-lg-9">
+  				  <ul>
+    				  <li><%= @event.event1 %></li>
+      				  <% if @event.event2.present? %>
+      				    <li><%= @event.event2 %></li>
+      				  <% end %>
+      				  <% if @event.event3.present? %>
+      				    <li><%= @event.event3 %></li>
+      				  <% end %>
+      				  <% if @event.event4.present? %>
+      				    <li><%= @event.event4 %></li>
+      				  <% end %>
+      				  <% if @event.event5.present? %>
+      				    <li><%= @event.event5 %></li>
+      				  <% end %>
+  				  </ul>
+  				</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">カテゴリー</th>
+  				<td class="col-lg-9">
+  				  <ul>
+    				  <li><%= @event.category1 %></li>
+      				  <% if @event.category2.present? %>
+      				    <li><%= @event.category2 %></li>
+      				  <% end %>
+      				  <% if @event.category3.present? %>
+      				    <li><%= @event.category3 %></li>
+      				  <% end %>
+      				  <% if @event.category4.present? %>
+      				    <li><%= @event.category4 %></li>
+      				  <% end %>
+      				  <% if @event.category5.present? %>
+      				    <li><%= @event.category5 %></li>
+      				  <% end %>
+  				  </ul>
+  				</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">エントリー可能期間</th>
+  				<td class="col-lg-9">エントリー開始：<%= @event.start %>////////エントリー終了：<%= @event.finish %></td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">参加費用</th>
+  				<td class="col-lg-9"><%= @event.price %>円</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">ワンポイントアドバイス</th>
+  				<td class="col-lg-9"><%= @event.advice %></td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">オーディエンスジャッジ</th>
+  				<td class="col-lg-9">
+  				  <% if @event.audience == true %>
+    				  <p>あり</p>
+    				<% else %>
+    				  <p>なし</p>
+    				<% end %>
+  				</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">ゲストジャッジ</th>
+  				<td class="col-lg-9">
+    				<% if @event.spj == true %>
+    				  <p>あり</p>
+    				<% else %>
+    				  <p>なし</p>
+    				<% end %>
+  				</td>
+  			</tr>
+  			<tr>
+  				<th class="col-lg-3 text-center">詳細</th>
+  				<td class="col-lg-9 c-text-field"><%= @event.introduction %></td>
+  			</tr>
+  		</tbody>
+  	</table>
+  </div>
+  <div class="row text-center">
+  <% if user_signed_in? %>
+    <%= link_to "エントリーする" %>
+  <% else %>
+    <%= link_to "会員登録してエントリーする" %>
+  <% end %>
+  </div>
+</div>
