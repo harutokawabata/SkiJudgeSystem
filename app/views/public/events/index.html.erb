@@ -1,11 +1,21 @@
 <div class="container">
     <% if user_signed_in? %>
       <div class="row">
+         <div class="c-toparea">
           <% @events.each do |event| %>
             <% if event.event_status == 3 %>
-              <p class="c-red">あなたが申請中のイベント</p><%= event.title %>
+              <p class="c-red">あなたが申請中のイベント</p>
+              <div class="c-toparea-info">
+                <p class="text-center">申請できるイベントは一人１つまでです</p>
+                <ul>
+                  <li>イベント名：<%=link_to event.title, event_path(event.id) %></li>
+                  <li>種目：<%= event.event1 %></li>
+                </ul>
+                
+              </div>
             <% end %>
           <% end %>
+         </div>
       </div>
     <% else %>
       <i class="fas fa-plus-circle"><%= link_to "ログインしてイベント申請", new_event_path %></i>
@@ -52,7 +62,7 @@
     				<% if user_signed_in? %>
     				<td>
     				  <div class="btn btn-danger">
-    				    <%= link_to "削除", event_path(event.id), method: :delete, style:"color: white;" %>
+    				    <%= link_to "削除", event_path(event.id), data: { confirm: 'そこに愛はあるんか？'}, method: :delete, style:"color: white;" %>
     				  </div>
     				  <div class="btn btn-primary">
     				    <%= link_to "編集", edit_event_path(event.id), style:"color: white;" %>
