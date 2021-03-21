@@ -3,6 +3,7 @@ class Public::EventsController < ApplicationController
   def index
     @events = Event.all
     @user = current_user
+    # @event = Event.current_user.id
   end
   
   def show
@@ -42,6 +43,10 @@ class Public::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.update(event_params)
     redirect_to events_path
+  end
+  
+  def edit
+    @event = Event.find(params[:id])
   end
   
   private
