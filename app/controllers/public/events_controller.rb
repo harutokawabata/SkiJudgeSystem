@@ -22,15 +22,21 @@ class Public::EventsController < ApplicationController
     # if current_user.event.present?
     # flash[:notice] = 'イベント申請できるのは１件のみです'
     # else
+    
+    # e = Event.find_by(user_id: current_user.id)
+    if @event.user_id.present?
       if @event.save!
         @event.update(event_status: 3)
-        flash[:notice] = 'イベントを申請しました'
+        flash[:notice] = 'イベントを申請しましたyo'
         redirect_to root_path
       else
         flash[:notice] = '申請に失敗しました'
         render action: :new
       end
-    # end
+    else
+      flash[:notice] = 'イベント申請は１件までです'
+      redirect_to events_path
+    end
   end
     
   def destroy
