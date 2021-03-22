@@ -1,21 +1,20 @@
 <div class="container">
     <% if user_signed_in? %>
       <div class="row">
-         <div class="c-toparea">
           <% @events.each do |event| %>
-            <% if event.event_status == 3 %>
-              <p class="c-red">あなたが申請中のイベント</p>
-              <div class="c-toparea-info">
-                <p class="text-center">申請できるイベントは一人１つまでです</p>
-                <ul>
-                  <li>イベント名：<%=link_to event.title, event_path(event.id) %></li>
-                  <li>種目：<%= event.event1 %></li>
-                </ul>
-                
+            <div class="c-toparea">
+              <% if event.event_status == 3 %>
+                <p class="c-red">あなたが申請中のイベント</p>
+                <div class="c-toparea-info">
+                  <p class="text-center">申請できるイベントは一人１つまでです</p>
+                  <ul>
+                    <li>イベント名：<%=link_to event.title, event_path(event.id) %></li>
+                    <li>種目：<%= event.event1 %></li>
+                  </ul>
+                </div>
               </div>
             <% end %>
           <% end %>
-         </div>
       </div>
     <% else %>
       <i class="fas fa-plus-circle"><%= link_to "ログインしてイベント申請", new_event_path %></i>
