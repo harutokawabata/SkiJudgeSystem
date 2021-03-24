@@ -2,7 +2,6 @@ class Public::EventsController < ApplicationController
   before_action :authenticate_user!, except:[:index, :show]
   def index
     @events = Event.all
-    @user = current_user
     # @event = Event.current_user.id
   end
   
@@ -12,8 +11,7 @@ class Public::EventsController < ApplicationController
   
   def new
     @events = Event.all
-    @user = current_user
-    @event = Event.new
+    @user = current_user.id
   end
   
   def create
@@ -51,6 +49,6 @@ class Public::EventsController < ApplicationController
   
   private
   def event_params
-    params.permit(:title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice, :introduction, :event_status, :date, :price, :category1, :category2, :category3, :category4, :category5, :method, :audience, :spj, :user_id, :admin_id)
+    params.permit(:event_user, :title, :event1, :event2, :event3, :event4, :event5, :capacity, :start, :finish, :advice, :introduction, :event_status, :date, :price, :category1, :category2, :category3, :category4, :category5, :method, :audience, :spj, :user_id, :admin_id, :user_id, :event_id, { :event_ids=> [] })
   end
 end
