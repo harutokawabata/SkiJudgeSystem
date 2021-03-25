@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   namespace :public do
+    get 'comment/index'
+    get 'comment/new'
+    get 'comment/create'
+  end
+  namespace :public do
+    get 'post/index'
+    get 'post/new'
+    get 'post/create'
+  end
+  namespace :public do
     get 'events/index'
   end
   # devise_for :admins
@@ -31,9 +41,9 @@ devise_for :users, controllers: {
   end
   
   scope module: :public do
-    resources :events do
-      resources :event_users
-    end
+    resources :events 
+    resources :posts 
+    resources :comments 
   end
   
   # devise_for :users, controllers: {
