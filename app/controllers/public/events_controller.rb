@@ -17,6 +17,8 @@ class Public::EventsController < ApplicationController
   def create
    @event = Event.new(event_params)
    @event.user_id = current_user.id
+  # @event.event_user.user_id = current_user.id
+  # @event.event_user.event_id = @event.id
     # if current_user.event.present?
     # flash[:notice] = 'イベント申請できるのは１件のみです'
     # else

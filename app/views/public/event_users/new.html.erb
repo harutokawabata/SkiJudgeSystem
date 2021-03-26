@@ -1,0 +1,267 @@
+<div class="container event">
+  <div class="row c-eventform">
+    <h2 class="midashi2 text-center">イベント申請フォーム</h2>   
+      <%= form_with url:"/events" do |f| %>
+        <div class="row c-row">
+            <div class="col-lg-3">
+              <%= f.label:大会方式 %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.select :method, [["オンライン大会", 0],["通常大会", 1]] %>
+            </div>
+        </div>
+        <div class="row c-row">
+            <div class="col-lg-3">
+              <%= f.label:イベント名 %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.text_field :title, size: 50 %>
+            </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <label class="control-label" for="">開催日時</label>
+          </div>
+          <div class="col-lg-9">
+            <%= f.date_select :date %>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:種目１ %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.select :event1, [["大回り", "大回り"], ["小回り", "小回り"], ["総合滑降", "総合滑降"], ["不整地小回り", "不整地小回り"]], include_blank: "選択してください" %><br>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:種目２ %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.select :event2, [["大回り", "大回り"], ["小回り", "小回り"], ["総合滑降", "総合滑降"], ["不整地小回り", "不整地小回り"]], include_blank: "選択してください" %><br>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:種目３ %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.select :event3, [["大回り", "大回り"], ["小回り", "小回り"], ["総合滑降", "総合滑降"], ["不整地小回り", "不整地小回り"]], include_blank: "選択してください" %><br>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:種目４ %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.select :event4, [["大回り", "大回り"], ["小回り", "小回り"], ["総合滑降", "総合滑降"], ["不整地小回り", "不整地小回り"]], include_blank: "選択してください" %><br>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:種目５ %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.text_field :event5 %>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:人数 %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.text_field :capacity %>
+          </div>
+        </div>
+        <div class="row c-row">
+            <div class="col-lg-3">
+              <%= f.label:カテゴリー１ %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.text_field :category1, size: 50 %>
+            </div>
+        </div>
+        <div class="row c-row">
+            <div class="col-lg-3">
+              <%= f.label:カテゴリー２ %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.text_field :category2, size: 50 %>
+            </div>
+        </div>
+        <div class="row c-row">
+            <div class="col-lg-3">
+              <%= f.label:カテゴリー３ %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.text_field :category3, size: 50 %>
+            </div>
+        </div>
+        <div class="row c-row">
+            <div class="col-lg-3">
+              <%= f.label:カテゴリー４ %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.text_field :category4, size: 50 %>
+            </div>
+        </div>
+        <div class="row c-row">
+            <div class="col-lg-3">
+              <%= f.label:カテゴリー５ %>  
+            </div>
+            <div class="col-lg-9">
+              <%= f.text_field :category5, size: 50 %>
+            </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <label class="control-label" for=""> エントリー開始日時</label>
+          </div>
+          <div class="col-lg-9">
+            <%= f.date_select :start %>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <label class="control-label" for=""> エントリー終了日時</label>
+          </div>
+          <div class="col-lg-9">
+            <%= f.date_select :finish %>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:アドバイス %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.select :advice, [["あり", "あり"], ["なし", "なし"]], include_blank: "選択してください" %><br>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:オーディエンスジャッジ %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.select :audience, [["あり", "あり"], ["なし", "なし"]], include_blank: "選択してください" %><br>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:ゲストジャッジ %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.select :spj, [["あり", "あり"], ["なし", "なし"]], include_blank: "選択してください" %><br>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:参加費 %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.text_field :price %>
+          </div>
+        </div>
+        <div class="row c-row">
+          <div class="col-lg-3">
+            <%= f.label:詳細 %>
+          </div>
+          <div class="col-lg-9">
+            <%= f.text_area :introduction, style:"width:100%; height:200px" %><br>
+          </div>
+        </div>
+        <div class="text-center">
+            <%= f.submit "この内容で大会を申請する" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row you">
+      <div class="text-center">
+          <h2>登録方法解説</h2>
+      </div>
+      <div class="row o">
+        <div class="event-intro">
+          <h4 class="midashi4">イベント名称について</h4>
+          <ul>
+            <li>該当する名称を記載</li>
+            <li>ユーザーはタイトルで検索します大事なワードを左へ記載しましょう</li>
+            <li>長すぎず、短すぎずがポイントです</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">開催日時とは？</h4>
+          <ul>
+            <li>実際にイベントを開催する日</li>
+            <li>オンライン大会の場合動画公開日</li>
+            <li>実際の大会の場合、大会当日</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">種目について</h4>
+          <ul>
+            <li>最低１種目、最大５種目まで登録可能</li>
+            <li>デフォルトで大回り、小回り、総合滑降、不整地小回りを用意</li>
+            <li>小回りリズム変化などの例外種目を希望する方は種目５に入力してください</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">人数</h4>
+          <ul>
+            <li>最大受付人数です</li>
+            <li>何人でも設定が可能ですが管理ができるだけの数値にすることをおすすめします</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">カテゴリー</h4>
+          <ul>
+            <li>カテゴリーとは男女分けや年齢分けに利用します</li>
+            <li>最大５つまでカテゴリーを分けることができます</li>
+            <li>カテゴリー分けなしの場合はカテゴリー１に「カテゴリー分けなし」と記載してください</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">エントリー開始日時＆終了日時</h4>
+          <ul>
+            <li>エントリー受付開始（終了）日時です。この日を超えるとエントリーが可能になります</li>
+            <li>日程を間違えても訂正できますが、ユーザーの混乱を招くので間違いのないようにしてください</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">アドバイス</h4>
+          <ul>
+            <li>ありの場合、ワンポイントアドバイスを入力できます</li>
+            <li>いいえの場合、ワンポイントアドバイスを反映しまっせん</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">オーディエンスジャッジについて</h4>
+          <ul>
+            <li>動画の視聴者からのジャッジを受け付けるかどうか？</li>
+            <li>オーディエンスジャッジを希望しない場合は必ずゲストジャッジが必要です</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">ゲストジャッジについて</h4>
+          <ul>
+            <li>知名度の有るユーザーによるジャッジメントを行います</li>
+            <li>基本的にゲストジャッジがいると参加費は徴収できるはずです</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">参加費について</h4>
+          <ul>
+            <li>参加費を設定してください</li>
+            <li>決済の機能がないのでノーコードで作成するかPayPayを利用します</li>
+          </ul>
+        </div>
+        <div class="event-intro">
+          <h4 class="midashi4">詳細</h4>
+          <ul>
+            <li>入力フォームにない詳細の情報を記載できます</li>
+            <li>改行等を利用してユーザーから見やすい文章を心がけましょう</li>
+            <li>集合場所の案内などに役立ちます</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
