@@ -22,6 +22,7 @@ class Public::EventsController < ApplicationController
     # if current_user.event.present?
     # flash[:notice] = 'イベント申請できるのは１件のみです'
     # else
+    # else
     
     # e = Event.find_by(user_id: current_user.id)
     if @event.user_id.present?
