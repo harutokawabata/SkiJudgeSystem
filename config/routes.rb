@@ -50,4 +50,6 @@ devise_for :users, controllers: {
   #   }
   #tst
 end
+
+#β版開発予定
     
