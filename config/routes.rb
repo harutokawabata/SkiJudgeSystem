@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # namespace :public do
+  #   get 'event_users/index'
+  #   get 'event_users/new'
+  #   get 'event_users/create'
+  #   get 'event_users/destroy'
+  #   get 'event_users/update'
+  # end
   namespace :public do
     get 'events/index'
   end
@@ -31,7 +38,9 @@ devise_for :users, controllers: {
   end
   
   scope module: :public do
-    resources :events
+    resources :events do
+      resources :event_users
+    end
   end
   
   # devise_for :users, controllers: {
@@ -39,5 +48,8 @@ devise_for :users, controllers: {
   #     passwords:     'users/passwords',
   #     registrations: 'users/registrations'
   #   }
+  #tst
 end
+
+#β版開発予定
     

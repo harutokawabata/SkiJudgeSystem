@@ -28,6 +28,15 @@
     word-wrap: break-word;
 }
 
+//0-2色の設定
+.c-red {
+    background-color: red;
+    color: white;
+    border: solid 1px red;
+    text-align: center;
+    width: 100%;
+}
+
 
 
 // 1フォーム関連
@@ -76,3 +85,18 @@
     width: 500px;
 }
 
+// 1-3トップエリア関連
+.c-toparea {
+    width: 100%;
+    height: 130px;
+    border: solid 1px gray;
+    margin: 20px;
+    // display: flex;
+    // justify-content: center;
+    
+    
+.c-toparea-info {
+        margin: 20px;
+    }
+    
+}

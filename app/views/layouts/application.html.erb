@@ -28,8 +28,8 @@
       		<div class="collapse navbar-collapse" id="navbarEexample5">
       			<ul class="nav navbar-nav">
       				<li><%= link_to "イベント一覧", events_path %></li>
-      				<li class="active"><%= link_to "イベント申し込み（未実装）", events_path %></li>
-      				<li><%= link_to "ジャッジ申し込み（未実装）", events_path %></li>
+      				<li class="active"><%= link_to "イベント申請", new_event_path %></li>
+      				<li><%= link_to "ジャッジ申し込み（未実装）", new_event_path %></li>
       			<% if admin_signed_in? %>
       				<li><%= link_to "イベント作成", new_admins_event_path %></li>
       				<li><%= link_to "ログアウト", destroy_admin_session_path, class: "glyphicon glyphicon-log-out", method: :delete %></li>
