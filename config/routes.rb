@@ -38,6 +38,7 @@ devise_for :users, controllers: {
   end
   
 
+
 end
 
 #β版開発予定
