@@ -44,6 +44,6 @@ devise_for :users, controllers: {
   end
   
 
-  #tst
+  #ts
 end
     
