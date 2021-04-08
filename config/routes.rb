@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  # namespace :public do
-  #   get 'event_users/index'
-  #   get 'event_users/new'
-  #   get 'event_users/create'
-  #   get 'event_users/destroy'
-  #   get 'event_users/update'
-  # end
+
   namespace :public do
     get 'events/index'
   end
@@ -44,6 +38,8 @@ devise_for :users, controllers: {
   end
   
 
-  #ts
+
 end
+
+#β版開発予定
     
