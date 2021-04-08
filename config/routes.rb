@@ -43,11 +43,7 @@ devise_for :users, controllers: {
     end
   end
   
-  # devise_for :users, controllers: {
-  #     sessions:      'users/sessions',
-  #     passwords:     'users/passwords',
-  #     registrations: 'users/registrations'
-  #   }
+
   #tst
 end
     
