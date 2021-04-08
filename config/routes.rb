@@ -40,5 +40,5 @@ devise_for :users, controllers: {
 
 end
 
-#β版開発予定
+#β版開発中
     
